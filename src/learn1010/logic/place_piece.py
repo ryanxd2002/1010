@@ -1,4 +1,5 @@
 from learn1010.constants.logic import DEFAULT_VALUE
+from learn1010.logic.check_valid import can_place
 
 def place_piece(board, piece, row, col, value=DEFAULT_VALUE):
     """
@@ -8,8 +9,7 @@ def place_piece(board, piece, row, col, value=DEFAULT_VALUE):
     Assumes the move is valid (can_place == True).
     If it's not valid, raises a ValueError.
     """
-    from logic import can_place  # or remove this line if logic.py already has can_place above
-
+    
     if not can_place(board, piece, row, col):
         raise ValueError("Invalid placement: piece does not fit at the given position")
 
