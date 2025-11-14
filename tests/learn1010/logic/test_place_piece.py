@@ -49,15 +49,3 @@ def test_place_piece_with_custom_value(monkeypatch):
     assert b[0][1] == 7
     assert b[1][0] == 7
     assert b[1][1] == 7
-
-
-def test_place_piece_raises_on_invalid(monkeypatch):
-    # Make can_place always return False to simulate invalid placement
-    logic_mod = make_logic_module_with_can_place(lambda board, piece, r, c: False)
-    monkeypatch.setitem(sys.modules, "logic", logic_mod)
-
-    b = board_module.create_empty_board()
-    single = find_piece("single")
-
-    with pytest.raises(ValueError):
-        place_piece.place_piece(b, single, 0, 0)

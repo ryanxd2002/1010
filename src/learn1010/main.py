@@ -6,6 +6,7 @@ from learn1010.logic.check_valid import can_place
 from learn1010.logic.place_piece import place_piece
 from learn1010.logic.clear_full_rows_cols import clear_lines
 from learn1010.constants.pieces import PIECES_IN_HAND
+from learn1010.score.basic_score import calculate_score
 
 
 def print_hand(hand):
@@ -91,7 +92,7 @@ def main():
         blocks = piece_block_count(piece)
         cleared_cells, rows_cleared, cols_cleared = clear_lines(board)
 
-        score += blocks + cleared_cells  # simple scoring rule
+        score += calculate_score(piece, rows_cleared + cols_cleared)
 
         print(f"Placed '{piece['name']}' at ({row}, {col}).")
         if rows_cleared or cols_cleared:

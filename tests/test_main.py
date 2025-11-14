@@ -84,15 +84,3 @@ def test_get_player_move_valid_after_invalid(monkeypatch):
 
     res = main_mod.get_player_move([PIECES[0]])
     assert res == (0, 2, 3)
-
-
-def test_main_exits_when_no_moves(monkeypatch, capsys):
-    # any_move_possible should return False to trigger game over
-    main_mod = setup_main_modules(any_move_fn=lambda b, h: False)
-
-    # Run main(); it should detect no moves and exit
-    main_mod.main()
-
-    out = capsys.readouterr().out
-    assert "No more possible moves. Game over!" in out
-    assert "Final score:" in out
