@@ -65,6 +65,5 @@ def main():
             print("All pieces used. Dealing new hand...\n")
             hand = generate_hand(PIECES_IN_HAND)
 
-
 if __name__ == "__main__":
     main()

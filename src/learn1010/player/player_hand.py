@@ -7,7 +7,6 @@ def print_hand(hand):
         print(f"[{i}] {piece['name']}")
         print_piece(piece)
 
-
 def get_player_move(hand):
     """
     Ask the player which piece to place and where.
