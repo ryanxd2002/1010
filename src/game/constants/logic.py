@@ -1,1 +1,0 @@
-DEFAULT_VALUE = 1
